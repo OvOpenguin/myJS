@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //"3+2=" 雙引號內為字串
+        // 3+2  為運算式
+        document.write("3+2=");
+        document.write(3 + 2);
+        document.write("<br>");
+
+
+        /*區塊註解*/
+        /*
+        document.write("3+2=");
+        document.write(3+2);
+        document.write("3+2=");
+        document.write(3+2);
+        */
+
+        // 合併
+        //加號特性：加號的前後只要有一邊為文字型態，就會自動變成串接資料。
+        document.write("3+2=" + 3 + 2);
+        document.write("<br>");
+        //需要額外加入小括號()，讓電腦先做小括號內的運算，接著再與前面文字做串接。
+        document.write("3+2=" + (3 + 2));
+
+    </script>
+
+</body>
+
+</html>
