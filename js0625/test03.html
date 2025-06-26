@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        //奇偶數判讀
+      
+        //方法1. 
+        var num = 20;
+        //取餘數判定，跟2相除取餘數 (餘數為1=>奇數，餘數為0=>偶數)
+        if (num % 2 == 1) {
+            console.log(`${num}是奇數`);//重複部分
+        } else if (num % 2 == 0) {
+            console.log(`${num}是偶數`);//重複部分
+        } else {
+            console.log("非整數");
+        }
+    </script>
+
+    <script>
+        //方法2. 把重複的部分獨立出來處理
+        var n = 0;
+        var result = "偶數";
+        if(n%2==1){
+            //指派(給值)
+            result = "奇數";
+        }
+        console.log(`${n}是${result}`);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //帳號密碼檢查(不使用邏輯運算子)
+        //寫法1： 使用巢狀檢查
+        var a = "admin";
+        var p = "1234";
+        //如果帳號正確，就檢查密碼。
+        if (a === "admin") {
+            if (p === "1234") {
+                console.log("帳密正確");
+            } else {
+                console.log("密碼錯誤");
+            }
+        } else if (a != "admin") {
+            //帳號錯誤下，仍需檢查密碼。
+            if (p === "1234") {
+                console.log("帳號錯誤");
+            } else {
+                console.log("帳密錯誤");
+            }
+        }
+    </script>
+
+    <script>
+        //帳號密碼檢查(使用邏輯運算子)
+        //寫法2： 使用邏輯運算子的交集(AND) => &&
+        var account = "admin";
+        var password = "1234";
+
+        if (account == "admin" && password == "1234") {
+            console.log("帳密正確");
+        } else if (account == "admin" && password != "1234") {
+            console.log("密碼錯誤");
+        } else if (account != "admin" && password == "1234") {
+            console.log("帳號錯誤");
+        } else if (account != "admin" && password != "1234") {
+            console.log("帳密都錯");
+        }
+    </script>
+
+
+</body>
+
+</html>

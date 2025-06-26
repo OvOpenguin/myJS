@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //倍數檢查
+        //宣告變數放數值
+        var a = 220;
+        //取餘數判定，餘數為0=>是倍數，餘數為非0=>不是倍數
+        if (a % 4 == 0) {
+            console.log("是4的倍數");
+        } else if (a % 4 != 0) {
+            console.log("不是4的倍數");
+        }
+    </script>
+
+    <script>
+        //重複部分合併
+        var b = 77;
+        var N = 3;
+        var result = "不是"
+        if (b % N == 0) {
+            result = "是"
+        }
+        console.log(`${b}${result}${N}的倍數`);
+    </script>
+</body>
+
+</html>

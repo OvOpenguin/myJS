@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //成績檢查 寫法1.利用AND限定區間
+        //宣告變數放成績
+        var score = 20;
+        //1. 先判讀分數是否位於有效區間0-100
+        if (score >= 0 && score <= 100) {
+            //2. 再判讀分數是否及格
+            if (score >= 60) {
+                console.log(score + "分，及格！");
+            } else {
+                console.log(score + "分，不及格！");
+            }
+        } else {
+            console.log("分數異常");
+        }
+    </script>
+    
+    <script>
+        //成績檢查 寫法2. 利用OR排除區間
+        var a = 33; 
+        //1. 先檢查分數是否位於有效區間0-100分
+        if (a > 100 || a < 0) {
+            alert("分數error")
+        } else {
+            //2. 再判讀是否及格
+            if (a >= 60) {
+                console.log(a + "分，及格！");
+            } else {
+                console.log(a + "分，不及格！");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

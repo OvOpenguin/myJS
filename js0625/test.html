@@ -14,9 +14,32 @@
         var b = 3;
         //並且加總結果給另一個變數
         var c = a + b;
-        console.log(a+"+"+b+"="+c); //數值+字串用「加號」連接
-        console.log(a);
-        
+        console.log(a + "+" + b + "=" + c); //數值+字串用「加號」連接
+        console.log(c);
+        //改用樣板字串 template string (字串字面值)
+        //使用反引號(``) ，變數部分用${變數名稱}，非變數直接打。
+        console.log(`${a}+${b}=${c}`);
+
+        //檢查分數是否及格？
+        var score = 61;
+        console.log(score >= 60);
+
+        //判斷式
+        if (score >= 60) {
+            //條件成立
+            //顯示「 __分=>及格」
+            //寫法1：console.log(`${score}分=>及格`);
+            console.log(`${score}分=>及格`);
+            //寫法2：console.log(score+"分=>及格");
+            console.log(score + "分=>及格");
+        } else {
+            //條件不成立
+            //顯示「__分=>不及格」
+            //寫法1：console.log(`${score}分=>不及格`);
+            console.log(`${score}分=>不及格`);
+            //寫法2：console.log(score+"分=>不及格");
+            console.log(score + "分=>不及格");
+        }
 
     </script>
 </body>
