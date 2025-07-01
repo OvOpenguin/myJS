@@ -9,30 +9,35 @@
 
 <body>
     <script>
-        //宣告變數給單價
-        var myDegree = 51;
-        var moneyOne = 7.35;
+        // 請設計一個水費查詢程式
+        // 1-10 度 => 每度單價為  7.35元
+        // 11-30度 => 每度單價為  9.45元
+        // 31-50度 => 每度單價為 11.55元
+        // 50以上  => 每度單價為 12.075元
+
+        //宣告變數給用水度數
+        var deg = 51;
         
         //如果介於某區間會乘上不同單價
-        if (myDegree >= 1 && myDegree <= 10) {
+        if (deg >= 1 && deg <= 10) {
             //Math.floor()無條件捨去
             //Math.ceil()無條件進位
             //Math.round()四捨五入，注意正負差異
-            console.log(`用水度數：${myDegree}`);
+            console.log(`用水度數：${deg}`);
             console.log("每度為："+7.35+"元");
-            console.log(`實際水費為：${Math.floor(myDegree * 7.35)}元`);
-        } else if (myDegree >= 11 && myDegree <= 30) {
-            console.log(`用水度數：${myDegree}`);
+            console.log(`實際水費為：${Math.floor(deg * 7.35)}元`);
+        } else if (deg >= 11 && deg <= 30) {
+            console.log(`用水度數：${deg}`);
             console.log("每度為："+9.45+"元");
-            console.log(`實際水費為：${Math.floor(myDegree * 9.45)}元`);
-        } else if (myDegree >= 31 && myDegree <= 50) {
-            console.log(`用水度數：${myDegree}`);
+            console.log(`實際水費為：${Math.floor(deg * 9.45)}元`);
+        } else if (deg >= 31 && deg <= 50) {
+            console.log(`用水度數：${deg}`);
             console.log("每度為："+11.55+"元");
-            console.log(`實際水費為：${Math.floor(myDegree * 11.55)}元`);
-        } else if (myDegree > 50) {
-            console.log(`用水度數：${myDegree}`);
+            console.log(`實際水費為：${Math.floor(deg * 11.55)}元`);
+        } else if (deg > 50) {
+            console.log(`用水度數：${deg}`);
             console.log("每度為："+12.075+"元");
-            console.log(`實際水費為：${Math.floor(myDegree * 12.075)}元`);
+            console.log(`實際水費為：${Math.floor(deg * 12.075)}元`);
         }
     </script>
 </body>
