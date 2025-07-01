@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //宣告變數給單價
+        var myDegree = 51;
+        var moneyOne = 7.35;
+        
+        //如果介於某區間會乘上不同單價
+        if (myDegree >= 1 && myDegree <= 10) {
+            //Math.floor()無條件捨去
+            //Math.ceil()無條件進位
+            //Math.round()四捨五入，注意正負差異
+            console.log(`用水度數：${myDegree}`);
+            console.log("每度為："+7.35+"元");
+            console.log(`實際水費為：${Math.floor(myDegree * 7.35)}元`);
+        } else if (myDegree >= 11 && myDegree <= 30) {
+            console.log(`用水度數：${myDegree}`);
+            console.log("每度為："+9.45+"元");
+            console.log(`實際水費為：${Math.floor(myDegree * 9.45)}元`);
+        } else if (myDegree >= 31 && myDegree <= 50) {
+            console.log(`用水度數：${myDegree}`);
+            console.log("每度為："+11.55+"元");
+            console.log(`實際水費為：${Math.floor(myDegree * 11.55)}元`);
+        } else if (myDegree > 50) {
+            console.log(`用水度數：${myDegree}`);
+            console.log("每度為："+12.075+"元");
+            console.log(`實際水費為：${Math.floor(myDegree * 12.075)}元`);
+        }
+    </script>
+</body>
+
+</html>
