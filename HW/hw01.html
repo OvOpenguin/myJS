@@ -13,12 +13,30 @@
         //宣告兩變數
         var n1 = 7;
         var n2 = 7;
-        //比兩數大小
+        //方法1：直接比兩數大小
         if (n1 > n2) {
-            console.log("max=" + n1);
+            console.log("max=" + n1); //重複部分
         } else if (n1 < n2) {
-            console.log("max=" + n2);
+            console.log("max=" + n2); //重複部分
+        } else{
+            console.log(`兩數一樣大為${n1}`);
         }
+        
+        //方法2: 先比較，再指向
+        var a1 = 7;
+        var a2 = 7;
+        //給一個變數max賦予值，利於後續指向
+        var max = a1;
+        
+        if (a2 > max) {
+            max = a2;
+        }
+        //重複部分合併成一句 (若有重複部分，通常可以「給一個變數做判斷與指向」，最會合併成一句做輸出。)
+        console.log(`最大值為${max}`); 
+
+
+
+
 
     </script>
 

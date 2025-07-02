@@ -10,7 +10,7 @@
 <body>
     <script>
         // 請設計一個票價費用試算程式：請輸入票價種類與張數，計算出票價的總計
-        //票價種類：
+        // 票價種類：
         // 全票 => 500元
         // 優待票為全票的八折
         // 敬老票為優待票的七折
@@ -58,7 +58,43 @@
                 break;
         }
     </script>
+    <script>
+        //方法3 利用「switch case」和「識別變數」搭配
+        var ticketType = 2;  //票價種類
+        var ticketPrice = 0; //票價價錢
+        var ticketName = ""; //票價名稱
+        var ticketNum = 2;   //票價張數
+        var errFlag ="N";    //存在是否錯誤(識別變數)！！
 
+        switch (ticketType) {
+            default:
+                console.log("err!!!票價類別不存在");
+                errFlag="Y"; //存在是否錯誤(識別變數)！！
+                break;
+            case 1: //全票
+                ticketPrice = 500;
+                ticketName = "全票"
+                break;
+            case 2: //優待票
+                ticketPrice = 500 * 0.8;
+                ticketName = "優待票"
+                break;
+            case 3: //敬老票
+                ticketPrice = 500 * 0.8 * 0.7;
+                ticketName = "敬老票"
+                break;
+        }
+
+        if(errFlag=="N"){
+            //存在是否錯誤(識別變數)！！
+            console.log(`「${ticketName}:${ticketNum}張，票價為：${ticketPrice}元」`);
+        }
+
+
+
+
+
+    </script>
 </body>
 
 </html>
