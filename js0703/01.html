@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1-10合計
+        /*
+        s=0 宣告一個變數裝累計的數值,初始值為 0
+        s=s+i 
+        i=1 => s=0+1 = 1
+        i=2 => s=1+2 = 2
+        i=3 => s=2+3 = 5
+        ...
+        找規則性!!!
+        */
+
+        var s = 0; //s放回圈外，注意變數放置處。
+        for (var i = 1; i <= 10; i++) {
+            s = s + i;
+        }
+        document.write("1+2+3...+10 = " + s + "<br>");
+
+        document.write("<hr>");
+
+        //請統計1-100之間的奇數和
+        //寫法1: 等差寫法
+        var s = 0; //前面若有定義過，所以若要重新使用，s變數須歸零。
+        for (var i = 1; i <= 100; i = i + 2) {
+            document.write(i + ", ");
+            s = s + i;
+        }
+        document.write("<br>" + "1-100之間的奇數和為 " + s);
+        document.write("<hr>");
+
+        //寫法2: 餘數寫法
+        var s = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 1) {
+                s = s + i;
+                document.write(i + ", ");
+            }
+        }
+        document.write("<br>" + "1-100之間的奇數和為 " + s);
+        document.write("<hr>");
+
+
+
+        //請統計100-1之間的偶數和
+        //寫法1: 等差寫法
+        var s = 0;
+        for (var i = 100; i >= 1; i = i - 2) {
+            document.write(i + ", ");
+            s = s + i;
+        }
+        document.write("<br>" + "100-1之間的偶數和為 " + s);
+        document.write("<hr>");
+
+        //寫法2: 餘數寫法
+        var s = 0;
+        for (var i = 100; i >= 1; i--) {
+            if (i % 2 == 0) {
+                document.write(i + ", ");
+                s = s + i;
+            }
+        }
+        document.write("<br>" + "100-1之間的偶數和為 " + s);
+        document.write("<hr>");
+
+
+        //請統計1-100之間的[3的倍數同時也是5的倍數]的和
+        // 15, 30, 45,...
+
+        
+        //<Bonus區>讓出來的最後一個值產生 "=" 而非 "+"
+        // 先查找最後一個值(同時為3和5的倍數)
+        var endValue = 0;
+        for (var i = 100; i >= 1; i--) {
+            if (i % 3 == 0) {
+                if (i % 5 == 0) {
+                    endValue = i;//已經找到最後一個值，直接用break打斷迴圈即可。
+                    break; //break只能用於switch 或 迴圈內，不可單獨使用於if內。 
+                }
+            }
+        }
+        document.write("找到最後一個值為" + endValue + "<hr>");
+
+
+        //寫法1：巢狀檢查 (每個值都做檢查)
+        var s = 0;
+        for (var i = 1; i <= 100; i++) {
+            // 檢查是否為3的倍數
+            if (i % 3 == 0) {
+                //檢查是否為5的倍數
+                if (i % 5 == 0) {
+                    document.write(i + ", ");
+                    s = s + i;
+                }
+            }
+        }
+        document.write("<br>" + "1-100之間的[3的倍數同時也是5的倍數]和為 " + s);
+        document.write("<hr>");
+
+        // 寫法2：邏輯運算子 => &&
+        var s = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                s = s + i;
+                if (i == endValue) {
+                    document.write(i + "=");//重複部分
+                    break; //已碰到最後值(90)，故加一個break讓最後值(90)之後的值(91,92,93...100)不用再判讀，節省效能。
+                } else {
+                    document.write(i + "+");//重複部分
+                }
+            }
+        }
+        document.write(s);
+        document.write("<hr>");
+
+        //重複部分合併成一句
+        var s = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                s = s + i;
+                document.write(i);//重複部分合併成一句
+                if (i == endValue) {
+                    document.write("=");
+                    break;
+                } else {
+                    document.write("+");
+                }
+            }
+        }
+        document.write(s);
+        document.write("<hr>");
+    </script>
+
+</body>
+
+</html>
