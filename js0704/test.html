@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>成績輸入</h1>
+    <p>請輸入成績N次, 直到輸入-1時結束</p>
+    <p>並統計出如下</p>
+    <p>
+    <ul>
+        <li>及格人數</li>
+        <li>及格人數</li>
+        <li>全班總分</li>
+        <li>全班平均</li>
+    </ul>
+    </p>
+    <p id="result">結果</p>
+
+    <script>
+        // 宣告變數
+        var pass = 0;
+        var fail = 0;
+        var tot = 0;
+        var avg = 0.0;
+
+        //輸入迴圈
+        while (1) {
+            var score = prompt("請輸入分數");
+            //無資料
+            // 檢查是否空白
+            // 去除前後空白 => trim()
+            if (score.trim() == "") {
+                alert("不可輸入空白，請重新輸入！");
+                continue;
+            }
+            if (score == null) {
+                //取消，應數值歸0
+                var pass = 0;
+                var fail = 0;
+                var tot = 0;
+                var avg = 0.0;
+                alert("您點選取消，即將結束輸入！");
+                break;
+            }
+
+            //有資料
+            //字串轉數值
+            score = Number(score);
+            if (isNaN(score)) {
+                alert("err！非數字，請重新輸入！");
+                continue; //非數值NaN => 重新輸入
+            }
+
+            if (score == "-1") {
+                break; // -1 => 結束迴圈,並開始計算及格/不及格人數
+            } else if (score < 0 || score > 100) {
+                alert("err!不是有效範圍0-100,請重新輸入！");
+                continue; // 0-100以外 => 重新輸入
+            }
+
+            //判斷及格/不及格
+            if (score >= 60) {
+                pass++;
+            } else {
+                fail++;
+            }
+
+            //加總
+            tot = tot + score;
+
+            //平均
+            //分母不可為0
+            if (pass + fail > 0) {
+                avg = tot / (pass + fail);
+            }
+        }
+
+        //顯示結果 
+        // result 要變成 及格人數/不及格人數/加總分數/平均 => 宣告變數 
+        var result = document.getElementById("result");
+        result.innerHTML = `
+            　及格：${pass}人 <br>
+            不及格：${fail}人 <br>
+            　總分：${tot}人 <br>
+            平均分數：${avg.toFixed(2)}人 <br>`
+
+    </script>
+</body>
+
+</html>
