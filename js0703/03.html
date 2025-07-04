@@ -8,27 +8,43 @@
 </head>
 
 <body>
-    <label for="">數值1</label>
+    <!-- 這是介面 -->
+    <!-- 標籤 -->
+    <label for="n1">數值1</label>
+    <!-- 文字方塊 -->
     <input type="number" id="n1">
     <br>
-    <label for="">數值2</label>
+    <label for="n2">數值2</label>
     <input type="number" id="n2">
     <br>
+    <!-- onclick="函式()" ， onclick 為事件 -->
     <button onclick="total()">加總</button>
     <br>
     <p id="result">合計結果</p>
 
+    <!-- 這是內裡運算 -->
     <script>
+        // 查看型別 => n1.value 為string, n1為object
+        // console.log("轉換前 => " + typeof "123");
+        // 字串轉數值 => parseInt(字串資料)
+        // console.log("轉換後 => " + typeof parseInt(n1.value));
+        // 數值轉字串 => 數值資料.toString()
+        // var strNum = 123;
+        // console.log("數值轉字串 => " + typeof strNum.toString());
+
+
+
         //建立一個加總函式
         function total() {
-            //取得數值1的位置 //.value為取得內容的意思
+            //取得數值1的位置 
             var n1 = document.getElementById("n1");
             //取得數值2的位置
             var n2 = document.getElementById("n2");
-            
-            
-            //取得數值1的內容,並且顯示在指定的位置
-            document.getElementById("result").textContent = n1.value + n2.value;
+            // 查看型別 => n1.value 為string, n1 為object
+            // 取得數值1的內容(n1.value),並且顯示在指定的位置  
+            // .value為取得內容的意思
+            // 利用parseInt()個別轉成數值，再加總
+            document.getElementById("result").textContent = parseInt(n1.value) + parseInt(n2.value);
         }
     </script>
 </body>
