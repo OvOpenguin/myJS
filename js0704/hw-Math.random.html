@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>猜數字</h2>
+    <p>請使用亂數產生一個值（1-100），最多能猜3次</p>
+    <input type="number">
+    <button onclick="click()">猜猜看</button>
+    <p id="result">最終結果</p>
+
+    <script>
+        //產生一個亂數
+        var rd = Math.floor(Math.random()*100)+1;
+        console.log(rd);
+
+        //宣告變數
+        var tot = 0;
+
+        //無限次輸入 => 可用while迴圈
+        while(1){
+            var n = prompt("猜數字");
+            //無資料
+            //取消 => null
+            //空格 => ""
+
+                    
+            // 有資料
+            // 非數值 (轉數值)
+            // 非區間
+            // 正確區間(1-100)
+
+            // 比大小
+            if(n>rd){
+                alert("太大了");
+                continue;
+            } 
+            if(n<rd){
+                alert("太小了");
+                continue;
+            }
+            if(n==rd){
+                alert("猜對了");
+                break;
+            }
+
+            //計算輸入次數 => 宣告變數 tot 
+            tot++;
+        }
+        var result = document.getElementById("result");
+        result.innerHTML = `
+        您輸入了${tot}次
+        `
+21
+    </script>
+
+</body>
+</html>
