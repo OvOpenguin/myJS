@@ -29,7 +29,7 @@
         var up = 100;   //上限
         var down = 0; //下限
 
-        // console.log(rd); //先查看亂數用
+        console.log(rd); //先查看亂數用
         // console.log(n1);
         // console.log(typeof n1); // n1 => object (物件?)
         // console.log(n1.value);
@@ -59,7 +59,9 @@
                 }
             }
 
-            if (tot > 2) {
+            // 順序: 1>2>3 => 3rd 沒猜到 => 輸
+            //             => 3rd 有猜到 => 贏    
+            if (tot == 3 && parseInt(n1.value) != rd ) {
                 result.innerHTML = `
                 遊戲結束，你輸了！<br>
                 正確答案是：${rd}
