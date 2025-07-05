@@ -14,9 +14,9 @@
     <input type="number" id="n1">
     <!-- 點擊按鈕 => 猜數值 -->
     <button onclick="guess()">猜猜看</button>
-    <!-- 呼叫click() 函數 
-        函數內要取得input內的guess內容 => function click(){  }
-        取得input id n1的內容 n1.value 
+    <!-- onclick事件=> 呼叫 guess()函數 
+        函數內要取得input內的 n1 內容 => function guess(){  }
+        取得input id="n1"的內容 n1.value => 宣告變數取得n1位置
         n1.value 字串轉數值，才能做後面判斷 => parseInt(n1.value)
         判斷後的結果要呈現在頁面上
     -->
@@ -31,9 +31,9 @@
 
         // console.log(rd); //先查看亂數用
         // console.log(n1);
-        // console.log(typeof n1); // n1 => object
+        // console.log(typeof n1); // n1 => object (物件?)
         // console.log(n1.value);
-        // console.log(typeof n1.value); // n1.value => string
+        // console.log(typeof n1.value); // n1.value => string (字串)
 
         //比大小
         function guess() {
