@@ -37,9 +37,13 @@
 
         //比大小
         function guess() {
-            //限制在1-100區間
+
             if (parseInt(n1.value) < 0 || parseInt(n1.value) > 100) {
+                //限制在1-100區間 
                 alert("數字不在區間內，請重新輸入");
+            } else if (n1.value == "") {
+                //不可空白
+                alert("不可空白，請重新輸入");
             } else {
                 //加總次數
                 tot++;
@@ -55,7 +59,7 @@
                 }
             }
 
-            if(tot>2){
+            if (tot > 2) {
                 result.innerHTML = `
                 遊戲結束，你輸了！<br>
                 正確答案是：${rd}
