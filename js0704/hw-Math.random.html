@@ -1,61 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h2>猜數字</h2>
-    <p>請使用亂數產生一個值（1-100），最多能猜3次</p>
-    <input type="number">
-    <button onclick="click()">猜猜看</button>
-    <p id="result">最終結果</p>
+    
 
     <script>
         //產生一個亂數
-        var rd = Math.floor(Math.random()*100)+1;
-        console.log(rd);
+        var rd = Math.floor(Math.random() * 100) + 1;
 
         //宣告變數
-        var tot = 0;
+        var tot = 0;  //計算輸入次數
+        var up = 100; //上限
+        var down = 1; //下限
 
         //無限次輸入 => 可用while迴圈
-        while(1){
-            var n = prompt("猜數字");
+        while (1) {
+            var n = prompt("猜數字(範圍:1-100)");
             //無資料
             //取消 => null
-            //空格 => ""
-
-                    
-            // 有資料
-            // 非數值 (轉數值)
-            // 非區間
-            // 正確區間(1-100)
-
-            // 比大小
-            if(n>rd){
-                alert("太大了");
-                continue;
-            } 
-            if(n<rd){
-                alert("太小了");
-                continue;
-            }
-            if(n==rd){
-                alert("猜對了");
+            if (n == null) {
+                alert("放棄，即將離開遊戲。");
                 break;
             }
+            //空格 => ""
+            if (n.trim() == "") {
+                alert("不可為空白值，請重新輸入");
+                continue;
+            }
 
-            //計算輸入次數 => 宣告變數 tot 
+
+            // 有資料
+            // 非數值 (轉數值)
+            n = Number(n);
+            if (isNaN(n)) {
+                alert("非數值，請重新輸入");
+                continue;
+            }
+            // 非區間
+            // 正確區間(1-100)
+            if (n < 1 || n > 100) {
+                alert("數值不在1-100範圍內，請重新輸入");
+                continue;
+            }
+
+            //計算輸入次數 => 宣告一個變數 tot
             tot++;
+            // 比大小
+            // 猜對亂數 => 結束迴圈
+            if (n == rd) {
+                alert(`第${tot}次：${n} => 猜對了 `);
+                break;
+            }
+            // 猜錯亂數 => 判斷大小
+            if (n > rd) {
+                up = n;
+                alert(`第${tot}次：${n} => 太大了(提示:${down}-${up})`);
+            }
+            if (n < rd) {
+                down = n;
+                alert(`第${tot}次：${n} => 太小了(提示:${down}-${up})`);
+            }
+
         }
-        var result = document.getElementById("result");
-        result.innerHTML = `
-        您輸入了${tot}次
-        `
-21
+
+
     </script>
 
 </body>
+
 </html>

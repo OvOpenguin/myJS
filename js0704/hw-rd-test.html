@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>猜數字</h2>
+    <p>請使用亂數產生一個值（1-100），最多能猜3次</p>
+    <!-- 輸入一個數值 -->
+    <input type="number" id="n1">
+    <!-- 點擊按鈕 => 猜數值 -->
+    <button onclick="guess()">猜猜看</button>
+    <!-- 呼叫click() 函數 
+        函數內要取得input內的guess內容 => function click(){  }
+        取得input id n1的內容 n1.value 
+        n1.value 字串轉數值，才能做後面判斷 => parseInt(n1.value)
+        判斷後的結果要呈現在頁面上
+    -->
+    <p id="result">目前結果</p>
+    <script>
+        var rd = Math.floor(Math.random() * 100) + 1; //產生亂數(1-100)
+        var n1 = document.getElementById("n1"); // 取得n1的位置 (document為一"物件"="屬性"+"方法")
+        var result = document.getElementById("result");
+        var tot = 0;  //計算輸入次數
+        var up = 100;   //上限
+        var down = 0; //下限
+
+        // console.log(rd); //先查看亂數用
+        // console.log(n1);
+        // console.log(typeof n1); // n1 => object
+        // console.log(n1.value);
+        // console.log(typeof n1.value); // n1.value => string
+
+        //比大小
+        function guess() {
+            //限制在1-100區間
+            if (parseInt(n1.value) < 0 || parseInt(n1.value) > 100) {
+                alert("數字不在區間內，請重新輸入");
+            } else {
+                //加總次數
+                tot++;
+                if (parseInt(n1.value) == rd) {
+                    result.textContent = "猜對了!! 正確答案是：" + n1.value;
+                } else if (parseInt(n1.value) > rd) {
+                    up = parseInt(n1.value);
+                    result.innerHTML = `第${tot}次：${n1.value} => 太大了(提示:${down}-${up}) `;
+                }
+                else if (parseInt(n1.value) < rd) {
+                    down = parseInt(n1.value);
+                    result.innerHTML = `第${tot}次：${n1.value} => 太小了(提示:${down}-${up}) `;
+                }
+            }
+
+            if(tot>2){
+                result.innerHTML = `
+                遊戲結束，你輸了！<br>
+                正確答案是：${rd}
+                `;
+            }
+
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
