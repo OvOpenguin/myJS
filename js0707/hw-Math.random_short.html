@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>猜數字</h2>
+    <p id="result"></p>
+
+
+    <script>
+        //產生一個亂數
+        var rd = Math.floor(Math.random() * 100) + 1;
+
+        //宣告變數
+        var tot = 0;  //計算輸入次數
+        var up = 100; //上限
+        var down = 1; //下限
+        var strMsg = ""; //存放每次執行後的訊息 // 保存每一次猜測的結果 => 宣告一個變數存放
+        var str1 = "";   //為省略重複部分，宣告一個變數存放
+
+        //無限次輸入 => 可用while迴圈
+        while (1) {
+            var n = prompt(`猜數字(範圍:${down}-${up})`); //需要連動，更改帶入變數
+            //無資料
+            //取消 => null
+            if (n == null) {
+                alert("放棄，即將離開遊戲。");
+                break;
+            }
+            //空格 => ""
+            if (n.trim() == "") {
+                alert("不可為空白值，請重新輸入");
+                continue;
+            }
+
+
+            // 有資料
+            // 非數值 (轉數值)
+            n = Number(n);
+            if (isNaN(n)) {
+                alert("非數值，請重新輸入");
+                continue;
+            }
+            // 非區間
+            // 正確區間(1-100)
+            if (n < 1 || n > 100) {
+                alert("數值不在1-100範圍內，請重新輸入");
+                continue;
+            }
+
+            //計算輸入次數 => 宣告一個變數 tot
+            tot++;
+            // 比大小
+            // 猜對亂數 => 結束迴圈
+            if (n == rd) {
+                str1 = `第${tot}次：${n} => 猜對了，答案是${rd}`;
+                alert(str1);
+                strMsg += str1 + "<br>"; // 保存每一次猜測的結果 => 宣告一個變數存放
+                break;
+            }
+            // 猜錯亂數 => 判斷大小
+            if (n > rd) {
+                str1 = `第${tot}次：${n} => 太大了(提示:${down}-${up})`;
+                up = n;
+                alert(str1); // 保存每一次猜測的結果 => 宣告一個變數存放
+                strMsg += str1 + "<br>";
+            }
+            if (n < rd) {
+                str1 = `第${tot}次：${n} => 太小了(提示:${down}-${up})`
+                down = n;
+                alert(str1);
+                strMsg += str1 + "<br>"; // 保存每一次猜測的結果 => 宣告一個變數存放
+            }
+
+        }
+        // 直接寫在頁面上
+        // document.write(strMsg);
+
+        // 指定寫在某處，需要找id 
+        // let result = document.getElementById("result");
+        // result.innerHTML = strMsg;
+
+        // 簡寫
+        document.getElementById("result").innerHTML = strMsg;
+
+    </script>
+
+</body>
+
+</html>
