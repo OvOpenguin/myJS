@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <h2>顯示陣列中的字串資料</h2>
+    <p>let arr1 = [1, 2, "a", 4, 5, "12345"];
+        // for
+        // for of
+        // forEach 
+    </p>
+
+<body>
+    <script>
+        let arr1 = [1, 2, "a", 4, "12345"];
+        // 方法一：for迴圈
+        for (let i = 0; i < arr1.length; i++) {
+            // console.log(arr1[i]);
+            // let type = console.log(typeof arr1[i]);
+
+            // 判斷是否為字串
+            if (typeof arr1[i] == "string") {
+                console.log(arr1[i]);
+            }
+        }
+
+        //方法二：for...of
+        for(let n of arr1){
+            if (typeof n == "string") {
+                console.log(n);
+            }
+        }
+
+        // 方法三：forEach
+        arr1.forEach((n) => {
+            if (typeof n == "string") {
+                console.log(n);
+            }
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>
