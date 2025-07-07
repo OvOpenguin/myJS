@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h2>找出陣列中最大值與最小值</h2>
     <p>
-        arr1 = [5, 60, 3, 90, 33, 1, 100];
-        // for
-        // for of
-        // forEach
+        arr1 = [5, 60, 3, 90, 33, 1, 100];<br>
+        // for<br>
+        // for of<br>
+        // forEach<br>
     </p>
+    <script>
+        // 方法一：for迴圈
+        let arr1 = [5, 60, 3, 90, 33, 1, 100];
+        let max = 0;
+        for (let i = 0; i < arr1.length; i++) {
+
+            // 和所有數比對後最大者
+            if (arr1[i] > max) {
+                max = arr1[i];
+            } else {
+                min = arr1[i];
+            }
+        }
+        console.log("最大值為" + max);
+        console.log("最小值為" + min);
+
+        // 方法二：for(let 變數 of 陣列)
+        for (let n of arr1) {
+            if (n > max) {
+                max = n;
+            } else if (n < max) {
+                min = n;
+            }
+        }
+        console.log("最大值為" + max);
+        console.log("最小值為" + min);
+
+        // 方法三: 陣列.forEach((變數)=>{執行});
+        arr1.forEach((n)=>{
+            if (n > max) {
+                max = n;
+            } else if (n < max) {
+                min = n;
+            }
+        });
+        console.log("最大值為" + max);
+        console.log("最小值為" + min);
+
+
+
+    </script>
+
+
+
 </body>
+
 </html>
