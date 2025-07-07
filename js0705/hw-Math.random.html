@@ -9,7 +9,8 @@
 
 <body>
     <h2>猜數字</h2>
-    
+    <p id="result"></p>
+
 
     <script>
         //產生一個亂數
@@ -19,10 +20,11 @@
         var tot = 0;  //計算輸入次數
         var up = 100; //上限
         var down = 1; //下限
+        var strMsg = ""; //存放每次執行後的訊息 // 保存每一次猜測的結果 => 宣告一個變數存放
 
         //無限次輸入 => 可用while迴圈
         while (1) {
-            var n = prompt("猜數字(範圍:1-100)");
+            var n = prompt(`猜數字(範圍:${down}-${up})`); //需要連動，更改帶入變數
             //無資料
             //取消 => null
             if (n == null) {
@@ -56,20 +58,31 @@
             // 猜對亂數 => 結束迴圈
             if (n == rd) {
                 alert(`第${tot}次：${n} => 猜對了 `);
+                strMsg = strMsg + `第${tot}次，猜對了，答案是${rd}<br>`; // 保存每一次猜測的結果 => 宣告一個變數存放
                 break;
             }
             // 猜錯亂數 => 判斷大小
             if (n > rd) {
                 up = n;
-                alert(`第${tot}次：${n} => 太大了(提示:${down}-${up})`);
+                alert(`第${tot}次：${n} => 太大了(提示:${down}-${up})`); // 保存每一次猜測的結果 => 宣告一個變數存放
+                strMsg = strMsg + `第${tot}次，太大了(提示:${down}-${up})<br>`;
             }
             if (n < rd) {
                 down = n;
                 alert(`第${tot}次：${n} => 太小了(提示:${down}-${up})`);
+                strMsg = strMsg + `第${tot}次，太小了(提示:${down}-${up})<br>`; // 保存每一次猜測的結果 => 宣告一個變數存放
             }
 
         }
-
+        // 直接寫在頁面上
+        // document.write(strMsg);
+        
+        // 指定寫在某處，需要找id 
+        // let result = document.getElementById("result");
+        // result.innerHTML = strMsg;
+        
+        // 簡寫
+        document.getElementById("result").innerHTML = strMsg;
 
     </script>
 
