@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h2>猜數字</h2>
+    <!-- 遊戲區 -->
+    <div id="game">
+        請輸入任意數：若要離開請輸入-1<br><br>
+        <input type="number" id="n1">
+        <button onclick="btnClick()">確定</button>
+    </div>
+
+    <!-- 結果顯示區 -->
+    <p id="result"></p>
+
+    <!-- 再玩一次按鈕(起初先隱藏，遊戲結束才出現) -->
+    <button id="reset" onclick="btnReset()" style="display: none">再玩一次</button>
+
+
+    <script>
+        //宣告取得"遊戲區 game"的位置
+        let game = document.getElementById("game");
+        //宣告取得"再玩一次按鈕 reset"的位置
+        let reset = document.getElementById("reset");
+        //宣告取得"結果顯示區 result"的位置
+        let result = document.getElementById("result");
+        //宣告亂數
+        let rd = Math.floor(Math.random() * 100) + 1;
+        let min = 1;
+        let max = 100;
+        count = 0;
+
+        let txtN = ""; //公用變數：可以跨函數或區域使用的變數
+
+        function btnClick() {
+            count++;
+            let txtN = document.getElementById("n1");
+            let keyNum = parseInt(n1.value);
+
+            //檢查是否空白
+            if (isNaN(keyNum)) {
+                alert("不能空白，請重新輸入");
+                txtN.focus();
+                return;
+            }
+
+            // 檢查是否結束遊戲
+            if (keyNum == -1) {
+                reset.style.display = "block";
+                return;
+            }
+
+            if (keyNum == rd) {
+                result.innerHTML += `第${count}次，Bingo，答案是${rd}<br>`;
+                //隱藏遊戲區
+                game.style.display = "none";
+                //出現再來一次的按鈕
+                reset.style.display = "block";
+                return; //結束function => return
+
+            } else if (keyNum > rd) {
+                max = keyNum;
+                result.innerHTML += `第${count}次，太大了，提示：${min}-${max}<br>`;
+            } else if (keyNum < rd) {
+                min = keyNum;
+                result.innerHTML += `第${count}次，太小了，提示：${min}-${max}<br>`;
+            }
+
+            txtN.value = ""; //清除input內的內容
+            txtN.focus(); //指定游標回到input上
+        }
+
+
+        // 再玩一次
+        function btnReset() {
+
+            //清除資料
+            txtN.value = "";
+            result.innerHTML = "";
+            max = 100;
+            min = 0;
+            count = 0;
+
+            // 重新取亂數
+            rd = Math.floor(Math.random() * 100) + 1;
+
+            //顯示遊戲區
+            game.style.display = "block";
+
+            //再玩一次按鈕消失
+            reset.style.display = "none";
+
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
