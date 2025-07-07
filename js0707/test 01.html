@@ -22,21 +22,28 @@
             // let type = console.log(typeof arr1[i]);
 
             // 判斷是否為字串
-            if (typeof arr1[i] == "string") {
+            if (typeof arr1[i] === "string") {
                 console.log(arr1[i]);
             }
         }
 
         //方法二：for...of
         for(let n of arr1){
-            if (typeof n == "string") {
+            if (typeof n === "string") {
                 console.log(n);
             }
         }
 
         // 方法三：forEach
         arr1.forEach((n) => {
-            if (typeof n == "string") {
+            if (typeof n === "string") {
+                console.log(n);
+            }
+        });
+
+        // 方法四：map
+        arr1.map((n)=>{
+            if (typeof n === "string") {
                 console.log(n);
             }
         });
