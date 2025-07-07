@@ -36,7 +36,7 @@
         // 方法二：for(let 變數 of 陣列)
         max = arr1[0]; //恢復初始值
         min = arr1[0]; //恢復初始值
-        
+
         for (let n of arr1) {
             if (n > max) {
                 max = n;
@@ -49,7 +49,7 @@
         // 方法三: 陣列.forEach((變數)=>{執行});
         max = arr1[0]; //恢復初始值
         min = arr1[0]; //恢復初始值
-        
+
         arr1.forEach((n) => {
             if (n > max) {
                 max = n;
@@ -62,7 +62,7 @@
         // 方法四：map
         max = arr1[0]; //恢復初始值
         min = arr1[0]; //恢復初始值
-        
+
         arr1.map((n) => {
             if (n > max) {
                 max = n;
@@ -72,7 +72,11 @@
         });
         console.log(`最大值為${max}，最小值為${min}`);
 
-
+        // 方法五：sort(()=>{})
+        arr1.sort((a, b) => {
+            return a - b; //遞增排序
+        });
+        console.log(`最大值為${arr1[arr1.length-1]}，最小值為${arr1[0]}`);
     </script>
 
 
