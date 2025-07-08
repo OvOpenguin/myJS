@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>產生樂透號碼</h2>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+
+    <script>
+        while (1) {
+            var n = prompt("請選擇要購買的彩票：1.威力彩 2.大樂透 3.今彩");
+
+            // 取消購買
+            if (n == null) {
+                alert("放棄購買，歡迎下次光臨！");
+                break;
+            }
+            // 不可空白
+            if (n.trim() == "") {
+                alert("不可為空白，請重新輸入");
+                continue;
+            }
+            //不可為字串
+            n = parseInt(n);
+            if (isNaN(n)) {
+                alert("非數值，請重新輸入");
+                continue;
+            }
+
+            // 非區間
+            // 正確區間(1-3)
+            if (n < 1 || n > 3) {
+                alert("請輸入正確代碼");
+                continue;
+            }
+
+            //輸入正確代碼後 
+            if (n == 1) {
+                // 威力彩
+                // 宣告陣列
+                let arr1 = [];
+                let arr2 = [];
+                
+                // 威力彩第一區：放入6個隨機數字
+                // 產生亂數 1-38
+                // 放入第一個數字
+                let arr1No = Math.floor(Math.random() * 38) + 1;
+                arr1.push(arr1No);
+                
+                // 第二個號碼之後，每個號碼都要檢查是否重複。
+                for (let a1 = 0; a1 < 6; a1++) {
+                    // 產生亂數
+                    arr1No = Math.floor(Math.random() * 38) + 1;
+                    // 確認是否重複
+                    if (arr1.includes(arr1No) == false) {
+                        arr1.push(arr1No); // 增加號碼到陣列中
+                    } else {
+                        a1--;  //當號碼重複時，這次的執行次數不算，所以要倒減回來
+                    }
+                }
+
+                // 查看威力彩
+                console.log(arr1);
+                console.log(arr2);
+                // 顯示頁面上
+                document.getElementById("result1").innerHTML = `威力彩第一區：${arr1}<br>`;
+                arr1.sort((a, b) => {
+                    //遞增排序 a - b
+                    return a - b;
+                });
+                document.getElementById("result2").innerHTML = `(排序後)威力彩第一區：${arr1}`;
+                document.getElementById("resukt3").innerHTML = "威力彩第二區"+ (Math.floor(Math.random() * 8) + 1);
+                break;
+
+
+            } else if (n == 2) {
+                // 大樂透
+                // 宣告陣列
+                let arr3 = [];
+                let arr4 = [];
+
+                // 大樂透第一區：放入6個隨機數字
+                for (let b1 = 0; b1 < 6; b1++) {
+                    // 產生亂數 1-49
+                    let rd49 = Math.floor(Math.random() * 49) + 1;
+                    arr3[b1] = rd49;
+
+                    // // // 檢查6個亂數是否出現一樣的數字
+                    // let find2 = arr3.includes(arr3[b1] + 1);
+                    // if (find2) {
+                    // }
+                }
+
+                // 大樂透第二區：放入1個隨機數字
+                for (let b2 = 0; b2 < 1; b2++) {
+                    // 產生亂數 1-49
+                    let rd49 = Math.floor(Math.random() * 49) + 1;
+                    arr4[b2] = rd49;
+                }
+
+                // 查看大樂透
+                console.log(arr3);
+                console.log(arr4);
+                // 顯示頁面上
+                document.getElementById("result").innerHTML = `大樂透第一區：${arr3}}`;
+                arr3.sort((a, b) => {
+                    //遞增排序 a - b
+                    return a - b;
+                });
+                document.getElementById("result2").innerHTML = `(排序後)大樂透號碼：${arr3}`;
+                break;
+                break;
+
+
+            } else if (n == 3) {
+                // 今彩
+                // 宣告陣列
+                let arr5 = [];
+
+                // 威力彩第一區：放入5個隨機數字
+                for (let c1 = 0; c1 < 5; c1++) {
+                    // 產生亂數 1-39
+                    let rd39 = Math.floor(Math.random() * 39) + 1;
+                    arr5[c1] = rd39;
+
+                    // // // 檢查5個亂數是否出現一樣的數字
+                    // let find3 = arr5.includes(arr5[c1] + 1);
+                    // if (find3) {
+
+                    // }
+                }
+                console.log(arr5);
+                // 顯示頁面上
+                document.getElementById("result").innerHTML = `今彩號碼：${arr5}`;
+                arr5.sort((a, b) => {
+                    //遞增排序 a - b
+                    return a - b;
+                });
+                document.getElementById("result2").innerHTML = `(排序後)今彩號碼：${arr5}`;
+                break;
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

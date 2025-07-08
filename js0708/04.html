@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>找出陣列中的奇數值</h2>
+    <hr>
+    <script>
+        let arr1 = [1, 6, 7, 100, 234];
+        let arr2 = [];
+
+        // for迴圈
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] % 2 == 1) {
+                arr2.push(arr1[i]);
+            }
+        }
+        console.log(arr2);
+
+        // // for n of 陣列
+        // for (let n of arr1) {
+        //     if (n % 2 == 1) {
+        //         console.log(n);
+        //     }
+        // }
+
+        // // .forEach
+        // arr1.forEach((n) => {
+        //     if (n % 2 == 1) {
+        //         console.log(n);
+        //     }
+        // });
+
+
+
+        // // 方法二：使用.map，此題目不適合，需要再另判讀empty與否
+        // let arr3 = arr1.map((n) => {
+        //     if (n % 2 != 0) {
+        //         return n;
+        //     }
+        // });
+        // console.log(arr3);
+
+
+
+
+
+        // 方法三：使用filter (只留下符合條件的元素)
+        // console.log(arr1);
+        let arr4 = arr1.filter((n) => {
+            if (n % 2 !== 0) {
+                return true; //奇數要保留
+            }
+        });
+        console.log(arr4);
+
+        // 簡化
+        // console.log(arr1);
+        let arr5 = arr1.filter((n) => {
+            return n % 2 !== 0; //奇數要保留
+        });
+        console.log(arr5);
+
+        // 再簡化 => {}只有一段可省略 return 和 {}
+        // console.log(arr1);
+        let arr6 = arr1.filter((n) => n % 2 !== 0);
+        console.log(arr5);
+
+
+
+
+        // test: 使用filter找出陣列中超過100以上的值
+        let arr7 = arr1.filter((n) => {
+            return n >= 100;
+        });
+        console.log(arr7);
+
+    </script>
+
+</body>
+
+</html>
