@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>函式</h1>
+    <hr>
+    請輸入姓名：<input type="text" id="name">
+    <button onclick="sayHi3()">確定</button>
+    <p id="show"></p>
+    <script>
+
+        // 建立函式  
+        // 參數不用宣告，參數不可數字開頭
+        // 1. 有參數，無傳回值
+        // function sum(a, b) {
+        //     // let a = 5;
+        //     // let b = 3;
+        //     console.log(a + b);
+        // }
+        // 呼叫函式
+        // sum(5, 3);
+        // sum(50, 30);
+        // sum(-1, 3);
+        // sum(-1, -3);
+
+
+        // 2. 有參數，有傳回值
+        // function sum(a, b) {
+        //     return a + b;
+        // }
+        // 呼叫函式
+        // console.log(sum(5, 3));
+
+        // let tot = sum(50, 30);
+        // document.write();
+        // console.log(tot);
+        // 先在"函式外"宣告「變數」
+        // let n1 = 50; 
+        // let n2 = 30;
+        // // 再將變數丟進函式內成為「函式參數」
+        // // n1 => a , n2 => b
+        // let tot = sum(n1, n2);
+        // console.log(`${n1}+${n2}=${tot}`);
+
+
+        // 3. 無參數，無傳回值
+        // 要呼叫函式才會被執行
+        // function sayHi() {
+        //     alert("Hi");
+        // }
+        // // sayHi();
+
+
+        // 3. 有參數，無傳回值
+        function sayHi2(name) {
+            alert("Hi" + name);
+        }
+
+        // let userName = prompt("請輸入姓名");
+        // sayHi2(userName);
+
+        // 4. 無參數，無傳回值
+        function sayHi3() {
+            // 取得文字方塊位置
+            let name = document.getElementById("name");
+            // 取得資料顯示位置
+            let show = document.getElementById("show");
+            // 三擇一 (若都想顯示，需要不同id的p段落來呈現)
+            // 純文字
+            // show.textContent = "Hi," + name.value; 
+            // 使用跳脫字元
+            show.innerText = "Hi,\n" + name.value;  
+            // 含HTML標籤
+            // show.innerHTML = "Hi,<br>" + name.value;
+        }
+
+        // 函式包函式
+        function sayHi4(){
+            let show = document.getElementById("show");
+            show.innerText = "Hi,\n" + getName();  
+        }
+
+        function getName(){
+            let name = document.getElementById("name").value
+            return name;
+        }
+
+
+        // 函式包函式
+
+        
+
+    </script>
+</body>
+
+</html>

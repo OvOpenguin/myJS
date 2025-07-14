@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 無參數，無回傳值
+        function add1(){
+            let a = 3;
+            let b = 5;
+            console.log(a+b);
+        }
+        add1();
+
+        // 2. 無參數，有回傳值
+        function add2(){
+            let a = 3;
+            let b = 5;
+            return a+b;
+        }
+        console.log(add2());
+
+        // 3. 有參數，無回傳值
+        function add3(a,b){
+            console.log(a+b);
+        }
+        add3(3,5);
+
+        // 4. 有參數，有回傳值
+        function add4(a, b){
+            return a+b;
+        }
+        let tot = add4(3,5);
+        console.log(tot);
+
+
+    </script>
+
+
+</body>
+</html>
