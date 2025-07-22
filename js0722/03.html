@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立一個add()函式，計算所有參數總和
+        // let add = (n1, n2, n3 = 0, n4 = 0) => {
+        //     let tot = n1 + n2 + n3 + n4;
+        //     return tot;
+        // }
+        // console.log(add(5, 3));
+        // console.log(add(5, 3, 8));
+        // console.log(add(5, 3, 8, 10));
+
+        // // 其餘參數：可接收不同參數值的個數使用
+        // let add = (...number) => {
+        //     let tot = 0;
+        //     // // 宣告一個變數n裝入number資料，資料存入n時成為一個陣列
+        //     // for (let n of number) {
+        //     //     tot += n; //number不斷相加
+        //     // }
+
+        //     for (let i = 0; i < number.length; i++) {
+        //         tot += number[i]; //若寫成 tot += i; 會沒有東西
+        //     }
+        //     return tot;
+        // }
+        // console.log(add(5, 3)); //[5,3]
+        // console.log(add(5, 3, 8));
+        // console.log(add(5, 3, 8, 10));
+
+
+        // 其餘陣列參數
+        let add = (...[x, y, z=0]) => {
+            console.log(x);
+            console.log(y);
+            console.log(z);
+            return x + y + z;
+        }
+        console.log(add(5, 3));             //[5,3]
+        console.log(add(5, 3, 8));          //[5,3,8]
+        console.log(add(5, 3, 8, 10));      //[5,3,8,10]
+
+
+
+
+    </script>
+
+</body>
+
+</html>

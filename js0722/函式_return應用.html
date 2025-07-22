@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立一個checkScore()函式，若超出分數有效範圍，離開函式，否則檢查是否及格
+        // let checkScore = (score) => {
+        // // 檢查是否超過函數的範圍，若超過就離開函式
+        // if (score < 0 || score > 100) {
+        //     console.log("超出分數有效範圍");
+        // } else {
+        //     // 檢查是否及格
+        //     if (score >= 60) {
+        //         console.log("及格了");
+        //     } else {
+        //         console.log("不及格");
+        //     }
+        // }
+
+        //     // 檢查是否超過函數的範圍，若超過就離開函式
+        //     if (score < 0 || score > 100) {
+        //         console.log("超出分數有效範圍");
+        //         return; //在函式內出現return就是結束函式
+        //     }
+        //     // 檢查是否及格
+        //     if (score >= 60) {
+        //         console.log("及格了");
+        //     } else {
+        //         console.log("不及格");
+        //     }
+
+        // }
+        // checkScore(66);
+
+        // 傳回值超過二個以上，使用陣列或物件
+        // 練習：建立一個addsub()函式，計算和與差，並且傳回和與差二個值
+
+        let addsub = (n1, n2) => {
+            let add = n1 + n2;
+            let sub = n1 - n2;
+            return [add, sub];  //若回傳有兩個值以上需放入陣列(!!!很重要)
+        }
+        let result = addsub(5, 3);
+        console.log(result); //會顯示為陣列
+        console.log(`兩數相加為 ${result[0]}`); //要顯示陣列內的值需使用陣列寫法arr[i]
+        console.log(`兩數相減為 ${result[1]}`);
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>
