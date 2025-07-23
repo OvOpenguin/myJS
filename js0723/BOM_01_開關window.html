@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="openNewWindow()">open</button>
+    <button onclick="closeNewWindow()">close</button>
+    <script>
+
+        let myWin = null;
+
+        //開新視窗
+        // 駝峰式命名
+        function openNewWindow() {
+            // 開新分頁
+            // myWin=window.open();
+
+            // 開新視窗
+            myWin = window.open("new.html", "myWin", "height=200, width=400, screenX=100, screenY=100");
+        }
+
+        // 關閉視窗
+        function closeNewWindow() {
+            if(myWin){
+                myWin.close();
+            }
+        }
+    </script>
+</body>
+
+</html>

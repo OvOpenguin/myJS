@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 線上時鐘 -->
+    <p id="clock">線上時鐘區</p>
+    <button type="buttom" id="btn">停止</button>
+
+    <script>
+        // 當網頁(window)被載入(load)時，自動顯示系統時間
+        
+        // 宣告共用變數
+        var timer;
+
+        // .addEventListener() =>  監聽事件的方法
+        // "load" => 為事件名稱
+        window.addEventListener("load", function () {
+            // .setInterval() => 每隔一段時間，做指定的事()
+            // 秒數 => 1秒 = 1000 毫秒
+            timer = window.setInterval(function () {
+                let clock = document.getElementById("clock")
+                clock.textContent = new Date().toLocaleString();
+            }, 1000);
+        });
+
+        // 時間停止
+        let btn = document.getElementById("btn"); //取得btn位置
+        btn.addEventListener("click", function () {
+            window.clearInterval(timer);
+        });
+
+        // btn.addEventListener("hover",function(){
+        // });
+        
+
+
+    </script>
+</body>
+
+</html>
