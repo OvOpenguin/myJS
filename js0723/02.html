@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //二、將函式當作其他函式的傳回值 => 傳回值內容是一個函式
+
+        let sayHi = (name) => {
+            // 傳回值沒有參數
+            return function () {
+                console.log(name);
+            }
+        }
+        // return 內容若為函式，需用()接收
+        sayHi("javascript")(); 
+
+
+        let sayHi2 = (name) => {
+            return console.log(name);
+        }
+        sayHi2("javascript2");
+
+        
+
+        let sayHi3 = (name) => {
+            // 傳回值帶有參數
+            return function (str1) {
+                console.log("Hi, " + name + str1);
+            }
+        }
+        // return 內容若為函式，需用()接收，且()內可放傳回值函式的參數
+        // 函式名稱(函式名稱參數)(傳回值中函式的參數);
+        sayHi3("javascript3")(" 早安");  
+        
+
+    </script>
+
+</body>
+
+</html>

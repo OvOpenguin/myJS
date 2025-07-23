@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //一、將函式當作其他函式的參數
+        let sayHi = () => {
+            return "Hi, ";
+        }
+        // 函式呼叫函式
+        // 寫法1
+        let welcome = (name) => {
+            console.log(sayHi() + name);
+        }
+        welcome('javascript');
+
+
+        // 寫法2：多放入一個參數callback => 這個命名不重要就是一個參數名稱
+        // 重要的是呼叫函式時，參數這欄填入了什麼。
+        let welcome2 = (callback, name) => {
+            // 這裡callback()加小括號 => 代表該參數是「函式」
+            console.log(callback(), name);
+        }
+        welcome2(sayHi, "javascript2")
+    </script>
+
+</body>
+
+</html>
