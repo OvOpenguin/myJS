@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <!-- 點「請選擇網站」會對上一個select，for=""要等於id="" -->
+        <label for="url">請選擇網站</label>
+        <!-- 下拉式清單 -->
+        <select name="" id="url">
+            <!-- 空連結表示法：# or javascript:; => 網址後方不會有#井字號 -->
+            <option value="">請選擇</option>
+            <option value="https://www.google.com/?hl=zh_TW">google</option>
+            <option value="https://www.momoshop.com.tw">momo</option>
+            <option value="https://shopee.tw/">蝦皮</option>
+            <option value="http://127.0.0.1:5500/js0728/event2.html">换圖功能</option>
+
+        </select>
+
+
+        <script>
+            // 取得下拉選單位置
+            let url = document.getElementById('url');
+
+            // change 代表改變內容
+            url.addEventListener('change', () => {
+                // 檢查長度
+                if (url.value.length > 0) {
+                    let newWin = open();//開新分頁
+                    newWin.location.href = url.value;
+                }
+
+            });
+
+        </script>
+    </form>
+</body>
+
+</html>

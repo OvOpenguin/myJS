@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="./images/01.png" alt="" id="pic">
+    <script>
+        let pic=document.querySelector('#pic');
+        // 滑鼠碰到圖片時，換圖
+        pic.addEventListener('mouseover', ()=>{
+            pic.src="./images/02.png"
+        })
+
+
+        // 滑鼠離開圖片時，還原
+        pic.addEventListener('mouseout', ()=>{
+            pic.src="./images/01.png"
+        })
+
+    </script>
+    
+</body>
+</html>
